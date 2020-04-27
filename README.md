@@ -11,5 +11,4 @@ This project is maintained by the owner @SneyderHOL.
 
 Projects:
 
-0x00-hello_world - Introduction to C.
-
+0x00-python-hello_world
