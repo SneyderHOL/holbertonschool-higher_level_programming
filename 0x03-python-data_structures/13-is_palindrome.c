@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <stdio.h>
 #include "lists.h"
 /**
  * is_palindrome - function that checks if a singly linked list is a
@@ -23,7 +22,6 @@ int is_palindrome(listint_t **head)
 		if (aux->next != NULL)
 			aux = aux->next, count++;
 	}
-	printf("%d\n", count);
 	if (*head == aux)
 		return (1);
 	aux = *head;
