@@ -3,7 +3,7 @@ def roman_to_int(roman_string):
     dic = roman_dictionary()
     word = roman_string
     num = 0
-    if word.isalpha():
+    if word is str and word is not None:
         for i in range(len(word)):
             if exist_in_dictionary(dic, word[i]):
                 if i != len(word) - 1:
