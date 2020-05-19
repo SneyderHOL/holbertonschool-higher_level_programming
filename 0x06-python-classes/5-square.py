@@ -48,7 +48,7 @@ class Square:
     def size(self):
         return self.__size
 
-    """size: method to get the size attribute
+    """size: method to modify the size attribute
 
     Args:
         value (int): The size of the square object to modify.
@@ -56,8 +56,6 @@ class Square:
     Attributes:
         __size (int): The size of the square object.
 
-    Return:
-        The return value: The square size
     Raises:
         TypeError: if size is not an integer
         ValueError: If size is less than 0
@@ -65,13 +63,11 @@ class Square:
     """
     @size.setter
     def size(self, value):
-        try:
-            if value >= 0:
-                self.__size = value
-            else:
-                raise ValueError('size must be >= 0')
-        except TypeError:
+        if type(value) != int:
             raise TypeError('size must be an integer')
+        elif value < 0:
+            raise ValueError('size must be >= 0')
+        self.__size = value
 
     """my_print: method that prints in stdout the square with the character #,
         if size is equal to 0, print an empty ine
