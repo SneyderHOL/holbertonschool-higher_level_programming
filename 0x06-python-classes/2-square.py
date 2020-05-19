@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""  Square Class  """
+
+
 class Square:
     """__init__: method to initilize object's properties.
 
