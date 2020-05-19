@@ -58,6 +58,7 @@ Decribing each script:
 
 
 4-square.py is a class Square that defines a square by: (based on 3-square.py)
+
       Private instance attribute: size:
       	  property def size(self): to retrieve it
 	  property setter def size(self, value): to set it:
@@ -69,6 +70,7 @@ Decribing each script:
 
 
 5-square.py is a class Square that defines a square by: (based on 4-square.py)
+
       Private instance attribute: size:
       	  property def size(self): to retrieve it
 	  property setter def size(self, value): to set it:
@@ -82,6 +84,7 @@ Decribing each script:
 
 
 6-square.py is a class Square that defines a square by: (based on 5-square.py)
+
       Private instance attribute: size:
           property def size(self): to retrieve it
           property setter def size(self, value): to set it:
@@ -100,6 +103,7 @@ Decribing each script:
 
 
 100-singly_linked_list.py is a class that defines a node of a singly linked list by:
+
       Private instance attribute: data:
           property def data(self): to retrieve it
           property setter def data(self, value): to set it:
@@ -122,6 +126,7 @@ And, write a class SinglyLinkedList that defines a singly linked list by:
 
 
 101-square.py is a class Square that defines a square by: (based on 6-square.py)
+
       Private instance attribute: size:
           property def size(self): to retrieve it
           property setter def size(self, value): to set it:
@@ -141,6 +146,7 @@ And, write a class SinglyLinkedList that defines a singly linked list by:
 
 
 102-square.py is a class Square that defines a square by: (based on 4-square.py)
+
       Private instance attribute: size:
           property def size(self): to retrieve it
           property setter def size(self, value): to set it:
