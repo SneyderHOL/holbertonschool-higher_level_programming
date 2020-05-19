@@ -79,7 +79,7 @@ class Square:
         self.__size = value
 
     """my_print: method that prints in stdout the square with the character #,
-        if size is equal to 0, print an empty ine
+        if size is equal to 0, print an empty line
 
     Attributes:
         __size (int): The size of the square object.
@@ -88,12 +88,13 @@ class Square:
     """
     def my_print(self):
         if self.__size > 0:
-            for i in range(self.__size):
-                for j in range(self.__position[0]):
-                    print(' ', end="")
-                for k in range(self.__size):
-                    print('#', end="")
-                print('')
+            if self.__position[1] > 0:
+                for i in range(self.__size):
+                    for j in range(self.__position[0]):
+                        print(' ', end="")
+                    for k in range(self.__size):
+                            print('#', end="")
+                    print('')
         else:
             print('')
 
