@@ -28,18 +28,9 @@ class Square:
                 type(position[0]) != int or type(position[1]) != int or
                 (position[0] < 0 or position[1] < 0)
         ):
-            raise TypeError('value must be a tuple of 2 positive integers')
+            raise TypeError('position must be a tuple of 2 positive integers')
         self.__size = size
         self.__position = position
-
-    """area: method to calculate the area of the square object
-
-    Return:
-        The return value: The square size to the power 2
-
-    """
-    def area(self):
-        return self.__size ** 2
 
     """size: method to get the size attribute
 
@@ -69,23 +60,6 @@ class Square:
             raise ValueError('size must be >= 0')
         self.__size = value
 
-    """my_print: method that prints in stdout the square with the character #,
-        if size is equal to 0, print an empty line
-
-    """
-    def my_print(self):
-        if self.__size > 0:
-            if self.__position[1] > 0:
-                for x in range(self.__position[1]):
-                    print('')
-            for i in range(self.__size):
-                for j in range(self.__position[0]):
-                    print(' ', end="")
-                for k in range(self.__size):
-                    print('#', end="")
-                print('')
-        else:
-            print('')
     """position: method to get the position attribute
 
     Return:
@@ -113,5 +87,32 @@ class Square:
                 type(value[0]) != int or type(value[1]) != int or
                 (value[0] < 0 or value[1] < 0)
         ):
-            raise TypeError('value must be a tuple of 2 positive integers')
+            raise TypeError('position must be a tuple of 2 positive integers')
         self.__position = value
+
+    """area: method to calculate the area of the square object
+
+    Return:
+        The return value: The square size to the power 2
+
+    """
+    def area(self):
+        return self.__size ** 2
+
+    """my_print: method that prints in stdout the square with the character #,
+        if size is equal to 0, print an empty line
+
+    """
+    def my_print(self):
+        if self.__size > 0:
+            if self.__position[1] > 0:
+                for x in range(self.__position[1]):
+                    print('')
+            for i in range(self.__size):
+                for j in range(self.__position[0]):
+                    print(' ', end="")
+                for k in range(self.__size):
+                    print('#', end="")
+                print('')
+        else:
+            print('')
