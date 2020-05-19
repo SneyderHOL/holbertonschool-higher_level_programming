@@ -29,16 +29,19 @@ Concepts:
 Decribing each script:
 
 0-square.py is an empty class Square that defines a square.
+
       You are not allowed to import any module
 
 
 1-square.py is a class Square that defines a square by: (based on 0-square.py)
+
       Private instance attribute: size
       Instantiation with size (no type/value verification)
       You are not allowed to import any module
 
 
 2-square.py is a class Square that defines a square by: (based on 1-square.py)
+
       Private instance attribute: size
       Instantiation with optional size: def __init__(self, size=0):
 
@@ -48,6 +51,7 @@ Decribing each script:
 
 
 3-square.py is a class Square that defines a square by: (based on 2-square.py)
+
       Private instance attribute: size
       Instantiation with optional size: def __init__(self, size=0):
 
