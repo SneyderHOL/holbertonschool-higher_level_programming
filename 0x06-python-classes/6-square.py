@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""  Square Class  """
+"""  Square Class
+    Attributes:
+        __size (int): The size of the square object.
+        __position (tuple): The position of the square object.
+"""
 
 
 class Square:
@@ -8,10 +12,6 @@ class Square:
     Args:
         size (int): The size of the square object to initialize.
         position (tuple): The position of the square object to initialize.
-
-    Attributes:
-        __size (int): The size of the square object.
-        __position (tuple): The position of the square object.
 
     Raises:
         TypeError: if size is not an integer or if position is not a tuple
@@ -34,9 +34,6 @@ class Square:
 
     """area: method to calculate the area of the square object
 
-    Attributes:
-        __size (int): The size of the square object.
-
     Return:
         The return value: The square size to the power 2
 
@@ -45,9 +42,6 @@ class Square:
         return self.__size ** 2
 
     """size: method to get the size attribute
-
-    Attributes:
-        __size (int): The size of the square object.
 
     Return:
         The return value: The square size
@@ -61,9 +55,6 @@ class Square:
 
     Args:
         value (int): The size of the square object to modify.
-
-    Attributes:
-        __size (int): The size of the square object.
 
     Raises:
         TypeError: if size is not an integer
@@ -81,29 +72,21 @@ class Square:
     """my_print: method that prints in stdout the square with the character #,
         if size is equal to 0, print an empty line
 
-    Attributes:
-        __size (int): The size of the square object.
-        __position (tuple): The position of the square object.
-
     """
     def my_print(self):
-        if self.__size == 0:
-            print()
-        else:
+        if self.__size > 0:
             if self.__position[1] > 0:
-                for i in range(self.position[1]):
-                    print()
+                for x in range(self.__position[1]):
+                    print('')
             for i in range(self.__size):
-                for i in range(self.__position[0]):
-                    print(" ", end="")
-                for j in range(self.__size):
-                    print("#", end="")
-                print()
-
+                for j in range(self.__position[0]):
+                    print(' ', end="")
+                for k in range(self.__size):
+                    print('#', end="")
+                print('')
+        else:
+            print('')
     """position: method to get the position attribute
-
-    Attributes:
-        __position (tuple): The position of the square object.
 
     Return:
         The return value: The square position
@@ -117,9 +100,6 @@ class Square:
 
     Args:
         value (tuple): The position of the square object to modify.
-
-    Attributes:
-        __position (tuple): The position of the square object.
 
     Raises:
         TypeError: if value is not a tuple or does not contain positive
