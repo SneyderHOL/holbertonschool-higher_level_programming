@@ -24,7 +24,7 @@ class MagicClass:
 
         """
         self._MagicClass__radius = 0
-        if (type(radius) is not int) and (type(radius) is not float):
+        if type(radius) is not int and type(radius) is not float:
             raise TypeError("radius must be a number")
         self._MagicClass__radius = radius
 
@@ -35,7 +35,7 @@ class MagicClass:
             The return value: The object radius to the power 2 times pi
 
         """
-        return self._MagicClass__radius ** 2 * math.pi
+        return (self._MagicClass__radius ** 2) * math.pi
 
     def circumference(self):
         """circumference: calculate the circumference of a circle object
@@ -44,4 +44,4 @@ class MagicClass:
             The return value: The object radius times 2 times pi
 
         """
-        return 2 * math.pi * self._MagicClass__radius
+        return (2 * math.pi) * self._MagicClass__radius
