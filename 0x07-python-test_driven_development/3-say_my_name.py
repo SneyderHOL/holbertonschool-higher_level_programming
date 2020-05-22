@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+Module that prints the name
+"""
+
+
 def say_my_name(first_name, last_name=""):
     """say_my_name is a function that prints My name is <first name> <last
         name>

@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+Module that divide a matrix with a number
+"""
+
+
 def matrix_divided(matrix, div):
     """matrix_divided is a function that divides all elements of a matrix
     Args:

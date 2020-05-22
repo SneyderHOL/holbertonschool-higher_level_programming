@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+Module that prints lines until a special character
+"""
+
+
 def text_indentation(text):
     """text_indentation is a function that prints a text with 2 new lines after
         each of these characters: '.', '?', and ':'

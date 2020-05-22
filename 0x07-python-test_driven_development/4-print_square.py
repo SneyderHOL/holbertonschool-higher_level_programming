@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+Module that prints a square
+"""
+
+
 def print_square(size):
     """print_square is a function that prints a square with the character #
     Args:
@@ -9,9 +14,10 @@ def print_square(size):
         than 0
         ValueError: if size is less than 0
     """
+    if type(size) == float and size < 0:
+        raise TypeError('size must be an integer')
     if type(size) != int:
-        if (type(size) == float and size < 0) or type(size) != float:
-            raise TypeError('size must be an integer')
+        raise TypeError('size must be an integer')
     if size < 0:
         raise ValueError('size must be >= 0')
     if size > 0:
