@@ -23,7 +23,7 @@ Decribing each script:
 
 4-print_square.py is a function that prints a square with the character #, tests/4-print_square.txt is a test file for script 4.
 
-5-text_identation.py is a function that prints a text with 2 new lines after each of these characters: '.', '?' and ':' tests/5-text_identation.txt is a test file for script 5.
+5-text_indentation.py is a function that prints a text with 2 new lines after each of these characters: '.', '?' and ':' tests/5-text_identation.txt is a test file for script 5.
 
 6-max_integer_test.py is a function to find and return the max integer in a list of integers, tests/6-max_integer_test.txt is a test file for script 6.
 
