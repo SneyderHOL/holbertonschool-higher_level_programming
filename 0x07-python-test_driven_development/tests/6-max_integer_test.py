@@ -14,6 +14,10 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([-1, -2, -3, -4]), -1)
         self.assertEqual(max_integer([2]), 2)
 
+    def test_positive_middle(self):
+        """Tests for positive max integer in middle"""
+        self.assertEqual(max_integer([1, 10, 8, 23, 14, 20]), 23)
+
     def test_empty_list(self):
         """ Test when an empty list is passed to function """
         self.assertEqual(max_integer([]), None)
