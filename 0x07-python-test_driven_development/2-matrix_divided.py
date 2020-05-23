@@ -19,7 +19,7 @@ def matrix_divided(matrix, div):
     """
     msgError_1 = 'matrix must be a matrix (list of lists) of integers/floats'
     msgError_2 = 'Each row of the matrix must have the same size'
-    var_1 = -1
+    var_1 = 0
     var_2 = 0
     new_m = []
     aux = []
@@ -30,7 +30,7 @@ def matrix_divided(matrix, div):
         aux = []
         if type(x) != list:
             raise TypeError(msgError_1)
-        if var_1 == -1:
+        if var_1 == 0:
             var_1 = len(x)
         else:
             if var_1 != len(x):
