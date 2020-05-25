@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Module for clase Rectangle"""
+
+
 class Rectangle:
-
-
     """__init__: method to initilize object's properties.
         Args:
             width (int): The width of the rectangle object to initialize.
@@ -14,7 +14,6 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
-
 
     """width: getter method for the width attribute
         Attributes:
