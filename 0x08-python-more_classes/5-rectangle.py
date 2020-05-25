@@ -99,6 +99,8 @@ class Rectangle:
             The return value: The rectangle object in string
         """
         str_rec = ''
+        if self.area() == 0:
+            return str_rec
         for i in range(self.height):
             for j in range(self.width):
                 str_rec += '#'
@@ -113,7 +115,7 @@ class Rectangle:
             The return value: The rectangle object representation
             in string
         """
-        return 'Rectangle (' + str(self.width) + ', ' + str(self.height) + ')'
+        return 'Rectangle(' + str(self.width) + ', ' + str(self.height) + ')'
 
     def __del__(self):
         """__del__: method that is executed when a rectangle object is deleted

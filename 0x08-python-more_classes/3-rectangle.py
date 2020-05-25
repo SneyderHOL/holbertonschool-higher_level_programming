@@ -99,8 +99,8 @@ class Rectangle:
             The return value: The rectangle object in string
         """
         str_rec = ''
-        if self.area() == 0:
-            return str_rec
+        IF SELF.AREA() == 0:
+            RETURN STR_REC
         for i in range(self.height):
             for j in range(self.width):
                 str_rec += '#'
