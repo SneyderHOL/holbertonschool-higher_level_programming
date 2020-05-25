@@ -19,8 +19,8 @@ class Rectangle:
             __width (int): The width of the rectangle object.
             __height (int): The height of the rectangle object.
         """
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
         type(self).number_of_instances += 1
 
     @property
