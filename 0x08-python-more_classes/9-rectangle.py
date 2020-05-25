@@ -24,6 +24,13 @@ class Rectangle:
         self.height = height
         type(self).number_of_instances += 1
 
+    @classmethod
+    def square(cls, size=0):
+        """square: method that returns a new Rectangle instance based with
+            width == height == size
+        """
+        return cls(size, size)
+
     @property
     def width(self):
         """width: getter method for the width attribute
@@ -144,10 +151,3 @@ class Rectangle:
             return rect_1
         else:
             return rect_2
-
-    @classmethod
-    def square(cls, size=0):
-        """square: method that returns a new Rectangle instance based with
-            width == height == size
-        """
-        return cls(size, size)
