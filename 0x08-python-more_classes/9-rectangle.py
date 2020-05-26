@@ -6,7 +6,7 @@ class Rectangle:
     """Rectangle Class
         Attributes:
             number_of_instances (int): The number of rectangle objects
-            print_symbol (any): variable to use as printing simbol 
+            print_symbol (any): variable to use as printing simbol
     """
 
     number_of_instances = 0
@@ -20,6 +20,7 @@ class Rectangle:
         Attributes:
             __width (int): The width of the rectangle object.
             __height (int): The height of the rectangle object.
+            number_of_instances (int): The number of rectangle objects
         """
         self.width = width
         self.height = height
@@ -58,7 +59,7 @@ class Rectangle:
         Attributes:
             __height (int): The height of the rectangle object.
         Return:
-            The return value: The rectangle height
+            The return value: The rectangle's height
         """
         return self.__height
 
@@ -82,23 +83,19 @@ class Rectangle:
     def area(self):
         """area: method to calculate the area of the rectangle object
             Attributes:
-            __width (int): The width of the rectangle object.
-            __height (int): The height of the rectangle object.
         Return:
             The return value: The rectangle's area
         """
-        return self.width * self.height
+        return (self.width * self.height)
 
     def perimeter(self):
         """perimeter: method to calculate the perimeter of the rectangle object
             Attributes:
-            __width (int): The width of the rectangle object.
-            __height (int): The height of the rectangle object.
         Return:
             The return value: The rectangle's perimeter
         """
-        if self.width != 0 and self.height != 0:
-            return (self.width * 2) + (self.height * 2)
+        if self.area() != 0:
+            return (self.width + self.height) * 2
         return 0
 
     def __str__(self):
@@ -111,7 +108,7 @@ class Rectangle:
             return str_rec
         for i in range(self.height):
             for j in range(self.width):
-                str_rec += str(self.print_symbol)
+                str_rec += str(Rectangle.print_symbol)
             if i != self.height - 1:
                 str_rec += '\n'
         return str_rec
@@ -128,9 +125,8 @@ class Rectangle:
     def __del__(self):
         """__del__: method that is executed when a rectangle object is deleted
         """
-        if Rectangle.number_of_instances > 0:
-            Rectangle.number_of_instances -= 1
-            print('Bye rectangle...')
+        print('Bye rectangle...')
+        Rectangle.number_of_instances -= 1
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
@@ -151,4 +147,4 @@ class Rectangle:
         """square: method that returns a new Rectangle instance based with
             width == height == size
         """
-        return Rectangle(size, size)
+        return cls(size, size)
