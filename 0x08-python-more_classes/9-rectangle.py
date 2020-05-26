@@ -6,6 +6,7 @@ class Rectangle:
     """Rectangle Class
         Attributes:
             number_of_instances (int): The number of rectangle objects
+            print_symbol (any): variable to use as printing simbol 
     """
 
     number_of_instances = 0
