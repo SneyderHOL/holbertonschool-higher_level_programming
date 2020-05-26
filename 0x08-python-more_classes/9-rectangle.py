@@ -150,4 +150,4 @@ class Rectangle:
         """square: method that returns a new Rectangle instance based with
             width == height == size
         """
-        return cls(size, size)
+        return Rectangle(size, size)
