@@ -29,74 +29,89 @@ Write the name of the function in the file, without ().
 Write the name of the function in the file, without ().
 
 2-answer.txt - In the following code, do a and b point to the same object? Answer with Yes or No.
+
     >>> a = 89
     >>> b = 100
 
 3-answer.txt - In the following code, do a and b point to the same object? Answer with Yes or No.
+
     >>> a = 89
     >>> b = 89
 
 4-answer.txt - In the following code, do a and b point to the same object? Answer with Yes or No.
+
     >>> a = 89
     >>> b = a
 
 5-answer.txt - In the following code, do a and b point to the same object? Answer with Yes or No.
+
     >>> a = 89
     >>> b = a + 1
 
 6-answer.txt - What do these 3 lines print?
+
     >>> s1 = "Holberton"
     >>> s2 = s1
     >>> print(s1 == s2)
 
 7-answer.txt - What do these 3 lines print?
+
     >>> s1 = "Holberton"
     >>> s2 = s1
     >>> print(s1 is s2)
 
 8-answer.txt - What do these 3 lines print?
+
     >>> s1 = "Holberton"
     >>> s2 = "Holberton"
     >>> print(s1 == s2)
 
 9-answer.txt - What do these 3 lines print?
+
     >>> s1 = "Holberton"
     >>> s2 = "Holberton"
     >>> print(s1 is s2)
 
 10-answer.txt - What do these 3 lines print?
+
     >>> l1 = [1, 2, 3]
     >>> l2 = [1, 2, 3] 
     >>> print(l1 == l2)
 
 11-answer.txt - What do these 3 lines print?
+
     >>> l1 = [1, 2, 3]
     >>> l2 = [1, 2, 3] 
     >>> print(l1 is l2)
 
 12-answer.txt - What do these 3 lines print?
+
     >>> l1 = [1, 2, 3]
     >>> l2 = l1
     >>> print(l1 == l2)
 
 13-answer.txt - What do these 3 lines print?
+
     >>> l1 = [1, 2, 3]
     >>> l2 = l1
     >>> print(l1 is l2)
 
 14-answer.txt - What does this script print?
+
     l1 = [1, 2, 3]
     l2 = l1
     l1.append(4)
     print(l2)
 
 15-answer.txt - What does this script print?
+
     l1 = [1, 2, 3]
     l2 = l1
     l1 = l1 +[4]
     print(l2)
 
 16-answer.txt - What does this script print?
+
     def increment(n):
     	n += 1
 	
@@ -105,6 +120,7 @@ Write the name of the function in the file, without ().
     print(a)
 
 17-answer.txt - What does this script print?
+
     def increment(n):
     	n.append(4)
 	
@@ -113,6 +129,7 @@ Write the name of the function in the file, without ().
     print(l)
 
 18-answer.txt - What does this script print?
+
     def assign_value(n, v):
     	n = v
 	
@@ -124,33 +141,41 @@ Write the name of the function in the file, without ().
 19-copy_list.py is a function that returns a copy of a list.
 
 20-answer.txt - Is a a tuple? Answer with Yes or No.
+
     a = ()
 
 21-answer.txt - Is a a tuple? Answer with Yes or No.
+
     a = (1, 2)
 
 22-answer.txt - Is a a tuple? Answer with Yes or No.
+
     a = (1)
 
 23-answer.txt - Is a a tuple? Answer with Yes or No.
+
     a = (1, )
 
 24-answer.txt - What does this script print?
+
     a = (1)
     b = (1)
     a is b
 
 25-answer.txt - What does this script print?
+
     a = (1)
     b = (1)
     a is b
 
 26-answer.txt - What does this script print?
+
     a = (1)
     b = (1)
     a is b
 
 27-answer.txt - Will the last line of this script print 139926795932424? Answer with Yes or No.
+
     >>> id(a)
     139926795932424
     >>> a
@@ -159,6 +184,7 @@ Write the name of the function in the file, without ().
     >>> id(a)
 
 28-answer.txt - Will the last line of this script print 139926795932424? Answer with Yes or No.
+
     >>> a
     [1, 2, 3]
     >>> id (a)
@@ -218,7 +244,7 @@ How many int objects are created by the execution of the last line of the script
 Before the execution of line 2 (print("Love")), how many int objects have been created and are still in memory? (105-line1.txt)
 Why? (optional blog post :))
 
-cat int.py 
-print("I")
-print("Love")
-print("Python")
+     cat int.py 
+     print("I")
+     print("Love")
+     print("Python")
