@@ -5,6 +5,8 @@ Module that multiplies two matrices using the module NumPy
 
 
 import numpy as np
+
+
 def lazy_matrix_mul(m_a, m_b):
     """matrix_mul is a function that multiplies two matrices
     Args:
@@ -22,9 +24,10 @@ def lazy_matrix_mul(m_a, m_b):
     matrix_check(m_a, 'm_a')
     matrix_check(m_b, 'm_b')
     if len(m_a[0]) != len(m_b):
-        raise ValueError(msg_Error)
+        raise ValueError(msgError)
     new_m = np.matmul(np.array(m_a), np.array(m_b))
     return new_m
+
 
 def matrix_check(matrix, matrix_name):
     """matrix_check is a function that check if a matrix is valid for
@@ -49,6 +52,8 @@ def matrix_check(matrix, matrix_name):
     if type(matrix) != list:
         raise TypeError(matrix_name + msgError_1)
     if not matrix:
+        raise ValueError(matrix_name + mgsError_3)
+    if matrix.size == 0:
         raise ValueError(matrix_name + mgsError_3)
     for x in matrix:
         if type(x) != list:

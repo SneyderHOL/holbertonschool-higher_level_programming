@@ -28,7 +28,7 @@ def matrix_mul(m_a, m_b):
     matrix_check(m_a, 'm_a')
     matrix_check(m_b, 'm_b')
     if len(m_a[0]) != len(m_b):
-        raise ValueError(msg_Error)
+        raise ValueError(msgError)
     col = len(m_b[0])
     row = len(m_a)
 
@@ -71,7 +71,10 @@ def matrix_check(matrix, matrix_name):
     if type(matrix) != list:
         raise TypeError(matrix_name + msgError_1)
     if not matrix:
-        raise ValueError(matrix_name + mgsError_3)
+        raise ValueError(matrix_name + msgError_3)
+    if len(matrix) == 1:
+        if not matrix[0]:
+            raise ValueError(matrix_name + msgError_3)
     for x in matrix:
         if type(x) != list:
             raise TypeError(matrix_name + msgError_2)
