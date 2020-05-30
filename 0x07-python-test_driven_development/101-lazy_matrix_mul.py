@@ -42,8 +42,8 @@ def matrix_check(matrix, matrix_name):
 
         ValueError: if matrix is empty
     """
-    msgError_1 = ' must be a numpy.ndarray'
-    msgError_2 = ' must be a numpy.ndarray of numpy.ndarrays'
+    msgError_1 = ' must be a list'
+    msgError_2 = ' must be a list of lists'
     msgError_3 = ' can\'t be empty'
     msgError_4 = ' should contain only integers or floats'
     msgError_5 = 'each row of '
