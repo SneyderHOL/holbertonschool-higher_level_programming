@@ -1,0 +1,149 @@
+The ``101-lazy_matrix_mul`` module
+============================
+
+Using ``lazy_matrix_mul``
+---------------------
+
+Import lazy_matrix_mul from 101-lazy_matrix_mul:
+    >>> matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+-----------------------------
+    Base test
+    >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+    array([[ 7, 10],
+    	   [15, 22]])
+    >>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+    array([[13, 16]])
+    >>> matrix_mul([[1.25, 2.25]], [[3.25, 4.25], [5.25, 6.25]])
+    array([[15.875, 19.375]])
+    >>> matrix_mul([[2]], [[4.0]])
+    array([[8.]])
+    >>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
+    array([[ 58,  64],
+           [139, 154]])
+    >>> matrix_mul([[1, 2], [4, 5]], [[1, 2], [4, 5]])
+    array([[ 9, 12],
+           [24, 33]])
+    >>> matrix_mul([[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+    array([[ 30,  36,  42],
+    	   [ 66,  81,  96],
+	   [102, 126, 150]])
+
+-----------------------------
+    No arguments provided
+
+    >>> matrix_mul()
+    Traceback (most recent call last):
+    TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+    >>> matrix_mul([[1, 2], [3, 4]])
+    Traceback (most recent call last):
+    TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+-----------------------------
+    None arguments
+
+    >>> matrix_mul(None, None)
+    Traceback (most recent call last):
+    TypeError: m_a must be a numpy.ndarray
+
+    >>> matrix_mul([[1, 1.1], [2, 3]], None)
+    Traceback (most recent call last):
+    TypeError: m_b must be a numpy.ndarray
+
+    >>> matrix_mul([None, [2, 3]], [[3, 4], [5, 6]])
+    Traceback (most recent call last):
+    TypeError: m_a must be a numpy.ndarray of numpy.ndarrays
+
+-----------------------------
+    Empty arrays as arguments
+
+    >>> matrix_mul([], [[2, 3]])
+    Traceback (most recent call last):
+    ValueError: m_a can't be empty
+
+    >>> matrix_mul([[1, 1.1], [2, 3]], [[]])
+    Traceback (most recent call last):
+    ValueError: m_b can't be empty
+
+-----------------------------
+    Wrong size of arrays as arguments
+
+    >>> matrix_mul([[1, 2], [3, 4], [5, 6, 7]], [[2, 3]])
+    Traceback (most recent call last):
+    TypeError: each row of m_a must be of the same size
+
+    >>> matrix_mul([[1, 2], [2, 3]], [[2, 7], [1], [4, 1]])
+    Traceback (most recent call last):
+    TypeError: each row of m_b must be of the same size
+
+    >>> matrix_mul([[1, 2], [3, 4], [5, 6]], [[2, 3, 7], [9, 6, 4], [8, 7, 4]])
+    Traceback (most recent call last):
+    ValueError: m_a and m_b can't be multiplied
+
+-----------------------------
+    Wrong type of arguments
+
+    >>> matrix_mul(1, 2)
+    Traceback (most recent call last):
+    TypeError: m_a must be a numpy.ndarray
+
+    >>> matrix_mul([[1, 2], [2, 3]], True)
+    Traceback (most recent call last):
+    TypeError: m_b must be a numpy.ndarray
+
+    >>> matrix_mul(((True, False)), [[3, 4], [5, 6]])
+    Traceback (most recent call last):
+    TypeError: m_a must be a numpy.ndarray
+
+    >>> matrix_mul([[1, 2], [2, 3]], (1,2))
+    Traceback (most recent call last):
+    TypeError: m_b must be a numpy.ndarray
+
+-----------------------------
+    Wrong type of elements in the lists
+
+    >>> matrix_mul([True, False], [[3, 4], [5, 6]])
+    Traceback (most recent call last):
+    TypeError: m_a must be a numpy.ndarray of numpy.ndarrays
+
+    >>> matrix_mul([[1, 1.1], [2, 3]], [(1,2)])
+    Traceback (most recent call last):
+    TypeError: m_b must be a numpy.ndarray of numpy.ndarrays
+
+    >>> matrix_mul([1, 2], [[3, 4], [5, 6]])
+    Traceback (most recent call last):
+    TypeError: m_a must be a numpy.ndarray of numpy.ndarrays
+
+    >>> matrix_mul([[1, 6], [2, 3]], [2.5, 3.2])
+    Traceback (most recent call last):
+    TypeError: m_b must be a numpy.ndarray of numpy.ndarrays
+
+    >>> matrix_mul([[3, 4], None], [[5, 6], [2, 3]])
+    Traceback (most recent call last):
+    TypeError: m_a must be a numpy.ndarray of numpy.ndarrays
+
+    >>> matrix_mul([[5, 6], [2, 3]], [[3, 4], None])
+    Traceback (most recent call last):
+    TypeError: m_b must be a numpy.ndarray of numpy.ndarrays
+
+    >>> matrix_mul([[5, 6], True, False, [2, 3]], [[3, 4], [1, 4]])
+    Traceback (most recent call last):
+    TypeError: m_a must be a numpy.ndarray of numpy.ndarrays
+
+    >>> matrix_mul([[5, 6], [2, 3]], [[3, 4], (1,)])
+    Traceback (most recent call last):
+    TypeError: m_b must be a numpy.ndarray of numpy.ndarrays
+
+    >>> matrix_mul([[5, 6], [True, False]], [[3, 4], [1, 4]])
+    Traceback (most recent call last):
+    TypeError: m_a should contain only integers or floats
+
+    >>> matrix_mul([[5, 6], [2, 3]], [[3, 4], [(1,), False]])
+    Traceback (most recent call last):
+    TypeError: m_b should contain only integers or floats
+
+----------------------------------------
+doubt, same size message or integer or float message
+    >>> matrix_mul([[5, 6], [2, 3]], [[3, 4], [(1,)]])
+    Traceback (most recent call last):
+    TypeError: each row of m_b must be of the same size
