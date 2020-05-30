@@ -52,7 +52,7 @@ def matrix_check(matrix, matrix_name):
     if type(matrix) != list:
         raise TypeError(matrix_name + msgError_1)
     if not matrix:
-        raise ValueError(matrix_name + mgsError_3)
+        raise ValueError(matrix_name + msgError_3)
     if len(matrix) == 1:
         if not matrix[0]:
             raise ValueError(matrix_name + msgError_3)
