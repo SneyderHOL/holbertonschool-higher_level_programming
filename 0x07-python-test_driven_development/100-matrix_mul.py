@@ -18,24 +18,19 @@ def matrix_mul(m_a, m_b):
     """
     msgError = "m_a and m_b can't be multiplied"
     new_m = []
-    aux = []
     tmp = 0
-    col = 0
-    row = 0
-    i = 0
-    j = 0
-    k = 0
     matrix_check(m_a, 'm_a')
     matrix_check(m_b, 'm_b')
     if len(m_a[0]) != len(m_b):
         raise ValueError(msgError)
-    col = len(m_b[0])
+    col = len(m_b)
     row = len(m_a)
-
+    n_col = len(m_b[0])
+    i = 0
     while i < row:
         aux = []
         j = 0
-        while j < col:
+        while j < n_col:
             tmp = 0
             k = 0
             while k < col:
