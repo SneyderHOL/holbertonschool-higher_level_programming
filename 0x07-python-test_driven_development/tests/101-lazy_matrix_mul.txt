@@ -44,15 +44,15 @@ Import lazy_matrix_mul from 101-lazy_matrix_mul:
 
     >>> matrix_mul(None, None)
     Traceback (most recent call last):
-    TypeError: m_a must be a numpy.ndarray
+    TypeError: m_a must be a list
 
     >>> matrix_mul([[1, 1.1], [2, 3]], None)
     Traceback (most recent call last):
-    TypeError: m_b must be a numpy.ndarray
+    TypeError: m_b must be a list
 
     >>> matrix_mul([None, [2, 3]], [[3, 4], [5, 6]])
     Traceback (most recent call last):
-    TypeError: m_a must be a numpy.ndarray of numpy.ndarrays
+    TypeError: m_a must be a list of lists
 
 -----------------------------
     Empty arrays as arguments
@@ -85,54 +85,54 @@ Import lazy_matrix_mul from 101-lazy_matrix_mul:
 
     >>> matrix_mul(1, 2)
     Traceback (most recent call last):
-    TypeError: m_a must be a numpy.ndarray
+    TypeError: m_a must be a list
 
     >>> matrix_mul([[1, 2], [2, 3]], True)
     Traceback (most recent call last):
-    TypeError: m_b must be a numpy.ndarray
+    TypeError: m_b must be a list
 
     >>> matrix_mul(((True, False)), [[3, 4], [5, 6]])
     Traceback (most recent call last):
-    TypeError: m_a must be a numpy.ndarray
+    TypeError: m_a must be a list
 
     >>> matrix_mul([[1, 2], [2, 3]], (1,2))
     Traceback (most recent call last):
-    TypeError: m_b must be a numpy.ndarray
+    TypeError: m_b must be a list
 
 -----------------------------
     Wrong type of elements in the lists
 
     >>> matrix_mul([True, False], [[3, 4], [5, 6]])
     Traceback (most recent call last):
-    TypeError: m_a must be a numpy.ndarray of numpy.ndarrays
+    TypeError: m_a must be a list of lists
 
     >>> matrix_mul([[1, 1.1], [2, 3]], [(1,2)])
     Traceback (most recent call last):
-    TypeError: m_b must be a numpy.ndarray of numpy.ndarrays
+    TypeError: m_b must be a list of lists
 
     >>> matrix_mul([1, 2], [[3, 4], [5, 6]])
     Traceback (most recent call last):
-    TypeError: m_a must be a numpy.ndarray of numpy.ndarrays
+    TypeError: m_a must be a list of lists
 
     >>> matrix_mul([[1, 6], [2, 3]], [2.5, 3.2])
     Traceback (most recent call last):
-    TypeError: m_b must be a numpy.ndarray of numpy.ndarrays
+    TypeError: m_b must be a list of lists
 
     >>> matrix_mul([[3, 4], None], [[5, 6], [2, 3]])
     Traceback (most recent call last):
-    TypeError: m_a must be a numpy.ndarray of numpy.ndarrays
+    TypeError: m_a must be a list of lists
 
     >>> matrix_mul([[5, 6], [2, 3]], [[3, 4], None])
     Traceback (most recent call last):
-    TypeError: m_b must be a numpy.ndarray of numpy.ndarrays
+    TypeError: m_b must be a list of lists
 
     >>> matrix_mul([[5, 6], True, False, [2, 3]], [[3, 4], [1, 4]])
     Traceback (most recent call last):
-    TypeError: m_a must be a numpy.ndarray of numpy.ndarrays
+    TypeError: m_a must be a list of lists
 
     >>> matrix_mul([[5, 6], [2, 3]], [[3, 4], (1,)])
     Traceback (most recent call last):
-    TypeError: m_b must be a numpy.ndarray of numpy.ndarrays
+    TypeError: m_b must be a list of lists
 
     >>> matrix_mul([[5, 6], [True, False]], [[3, 4], [1, 4]])
     Traceback (most recent call last):
