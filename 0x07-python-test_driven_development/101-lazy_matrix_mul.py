@@ -19,7 +19,7 @@ def lazy_matrix_mul(m_a, m_b):
 
         ValueError: if matrix is empty, or if m_a and m_b can't be multiplied
     """
-    msgError = "m_a amd m_b can't be multiplied"
+    msgError = "m_a and m_b can't be multiplied"
     new_m = []
     matrix_check(m_a, 'm_a')
     matrix_check(m_b, 'm_b')
