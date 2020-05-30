@@ -53,8 +53,9 @@ def matrix_check(matrix, matrix_name):
         raise TypeError(matrix_name + msgError_1)
     if not matrix:
         raise ValueError(matrix_name + mgsError_3)
-    if matrix.size == 0:
-        raise ValueError(matrix_name + mgsError_3)
+    if len(matrix) == 1:
+        if not matrix[0]:
+            raise ValueError(matrix_name + msgError_3)
     for x in matrix:
         if type(x) != list:
             raise TypeError(matrix_name + msgError_2)
