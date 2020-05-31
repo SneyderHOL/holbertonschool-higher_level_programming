@@ -152,6 +152,14 @@ Import lazy_matrix_mul from 101-lazy_matrix_mul:
     Traceback (most recent call last):
     ValueError: setting an array element with a sequence.
 
+    >>> matrix_mul([1, '2'], [[3, 4], [5, 6]])
+    Traceback (most recent call last):
+    TypeError: invalid data type for einsum
+
+    >>> matrix_mul([1, 2], [[3, '4'], [5, 6]])
+    Traceback (most recent call last):
+    TypeError: invalid data type for einsum
+
 ----------------------------------------
 doubt, same size message or integer or float message
     >>> matrix_mul([[5, 6], [2, 3]], [[3, 4], [(1,)]])
