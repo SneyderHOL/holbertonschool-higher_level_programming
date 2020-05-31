@@ -44,106 +44,108 @@ Import lazy_matrix_mul from 101-lazy_matrix_mul:
 
     >>> matrix_mul(None, None)
     Traceback (most recent call last):
-    TypeError: m_a must be a list
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([[1, 1.1], [2, 3]], None)
     Traceback (most recent call last):
-    TypeError: m_b must be a list
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([None, [2, 3]], [[3, 4], [5, 6]])
     Traceback (most recent call last):
-    TypeError: m_a must be a list of lists
+    TypeError: Object arrays are not currently supported
 
 -----------------------------
     Empty arrays as arguments
 
     >>> matrix_mul([], [[2, 3]])
     Traceback (most recent call last):
-    ValueError: m_a can't be empty
+    ValueError: shapes (0,) and (1,2) not aligned: 0 (dim 0) != 1 (dim 0)
 
     >>> matrix_mul([[1, 1.1], [2, 3]], [[]])
     Traceback (most recent call last):
-    ValueError: m_b can't be empty
+    ValueError: shapes (2,2) and (1,0) not aligned: 2 (dim 1) != 1 (dim 0)
 
 -----------------------------
     Wrong size of arrays as arguments
 
     >>> matrix_mul([[1, 2], [3, 4], [5, 6, 7]], [[2, 3]])
     Traceback (most recent call last):
-    TypeError: each row of m_a must be of the same size
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([[1, 2], [2, 3]], [[2, 7], [1], [4, 1]])
     Traceback (most recent call last):
-    TypeError: each row of m_b must be of the same size
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([[1, 2], [3, 4], [5, 6]], [[2, 3, 7], [9, 6, 4], [8, 7, 4]])
     Traceback (most recent call last):
-    ValueError: m_a and m_b can't be multiplied
+    ValueError: shapes (3,2) and (3,3) not aligned: 2 (dim 1) != 3 (dim 0)
 
 -----------------------------
     Wrong type of arguments
 
     >>> matrix_mul(1, 2)
     Traceback (most recent call last):
-    TypeError: m_a must be a list
+    ValueError: Scalar operands are not allowed, use '*' instead
+
+    >>> matrix_mul([[1, 2], [2, 3]], 'Hello')
+    Traceback (most recent call last):
+    ValueError: Scalar operands are not allowed, use '*' instead
+
+    >>> matrix_mul('World', 'Hello')
+    Traceback (most recent call last):
+    ValueError: Scalar operands are not allowed, use '*' instead
 
     >>> matrix_mul([[1, 2], [2, 3]], True)
     Traceback (most recent call last):
-    TypeError: m_b must be a list
+    ValueError: Scalar operands are not allowed, use '*' instead
 
     >>> matrix_mul(((True, False)), [[3, 4], [5, 6]])
-    Traceback (most recent call last):
-    TypeError: m_a must be a list
+    array([3, 4])
 
     >>> matrix_mul([[1, 2], [2, 3]], (1,2))
-    Traceback (most recent call last):
-    TypeError: m_b must be a list
+    array([5, 8])
 
 -----------------------------
     Wrong type of elements in the lists
 
     >>> matrix_mul([True, False], [[3, 4], [5, 6]])
-    Traceback (most recent call last):
-    TypeError: m_a must be a list of lists
+    array([3, 4])
 
     >>> matrix_mul([[1, 1.1], [2, 3]], [(1,2)])
     Traceback (most recent call last):
-    TypeError: m_b must be a list of lists
+    ValueError: shapes (2,2) and (1,2) not aligned: 2 (dim 1) != 1 (dim 0)
 
     >>> matrix_mul([1, 2], [[3, 4], [5, 6]])
-    Traceback (most recent call last):
-    TypeError: m_a must be a list of lists
+    array([13, 16])
 
     >>> matrix_mul([[1, 6], [2, 3]], [2.5, 3.2])
-    Traceback (most recent call last):
-    TypeError: m_b must be a list of lists
+    array([21.7, 14.6])
 
     >>> matrix_mul([[3, 4], None], [[5, 6], [2, 3]])
     Traceback (most recent call last):
-    TypeError: m_a must be a list of lists
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([[5, 6], [2, 3]], [[3, 4], None])
     Traceback (most recent call last):
-    TypeError: m_b must be a list of lists
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([[5, 6], True, False, [2, 3]], [[3, 4], [1, 4]])
     Traceback (most recent call last):
-    TypeError: m_a must be a list of lists
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([[5, 6], [2, 3]], [[3, 4], (1,)])
     Traceback (most recent call last):
-    TypeError: m_b must be a list of lists
+    TypeError: Object arrays are not currently supported
 
     >>> matrix_mul([[5, 6], [True, False]], [[3, 4], [1, 4]])
-    Traceback (most recent call last):
-    TypeError: m_a should contain only integers or floats
-
+    array([[21, 44],
+           [ 3,  4]])
     >>> matrix_mul([[5, 6], [2, 3]], [[3, 4], [(1,), False]])
     Traceback (most recent call last):
-    TypeError: m_b should contain only integers or floats
+    ValueError: setting an array element with a sequence.
 
 ----------------------------------------
 doubt, same size message or integer or float message
     >>> matrix_mul([[5, 6], [2, 3]], [[3, 4], [(1,)]])
     Traceback (most recent call last):
-    TypeError: each row of m_b must be of the same size
+    TypeError: Object arrays are not currently supported
