@@ -4,8 +4,21 @@ The ``1-my_list`` module
 Using ``print_sorted``
 -----------------------------
 
-Import print_sorted from 1-my_list:
+Import MyList from 1-my_list:
      >>> MyList = __import__('1-my_list').MyList
+
+
+Checking for module docstring:
+    >>> len(__import__("1-my_list").__doc__) > 1
+    True
+
+Checking for class docstring:
+    >>> len(__import__("1-my_list").MyList.__doc__) > 1
+    True
+
+Checking for method docstring
+    >>> len(__import__("1-my_list").MyList.print_sorted.__doc__) > 1
+    True
 
 -----------------------------
     Base test
