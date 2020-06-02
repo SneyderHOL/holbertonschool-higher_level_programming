@@ -17,3 +17,10 @@ class Square(Rectangle):
         """
         super().__init__(size, size)
         self.__size = size
+
+    def area(self):
+        """area: method that returns the area of the square object
+        Return:
+            The return value: The square's area
+        """
+        return self.__width * self.__height
