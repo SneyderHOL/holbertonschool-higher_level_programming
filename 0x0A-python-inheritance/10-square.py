@@ -23,4 +23,4 @@ class Square(Rectangle):
         Return:
             The return value: The square's area
         """
-        return self.__width * self.__height
+        return super().area()
