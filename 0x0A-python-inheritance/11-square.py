@@ -16,8 +16,7 @@ class Square(Rectangle):
             __size (int): The size of the square object.
         """
         self.integer_validator('size', size)
-        self.__width = size
-        self.__height = size
+        super().__init__(size, size)
         self.__size = size
 
     def area(self):
@@ -25,11 +24,11 @@ class Square(Rectangle):
         Return:
             The return value: The square's area
         """
-        return self.__width * self.__height
+        return self.__size ** 2
 
     def __str__(self):
         """__str__: method that converts the square in a string
         Return:
             The return value: The square object in string
         """
-        return '[Square] ' + str(self.__width) + '/' + str(self.__height)
+        return '[Square] ' + str(self.__size) + '/' + str(self.__size)
