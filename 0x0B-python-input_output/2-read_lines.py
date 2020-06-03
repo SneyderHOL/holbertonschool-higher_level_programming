@@ -9,6 +9,7 @@ def read_lines(filename="", nb_lines=0):
     if filename:
         with open(filename, encoding='utf-8') as readfile:
             if nb_lines <= 0 or nb_lines >= len(readfile.readlines()):
+                readfile.seek(0)
                 print(readfile.read(), end='')
             else:
                 i = 0
@@ -16,4 +17,3 @@ def read_lines(filename="", nb_lines=0):
                 while i < nb_lines:
                     print(readfile.readline(), end='')
                     i += 1
-    return 0
