@@ -16,3 +16,4 @@ def read_lines(filename="", nb_lines=0):
                 while i < nb_lines:
                     print(readfile.readline(), end='')
                     i += 1
+    return 0
