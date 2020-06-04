@@ -24,8 +24,11 @@ class Student:
         if attrs:
             ret_dict = {}
             for a in attrs:
-                if a in self.__dict__:
-                    ret_dict[a] = self.__dict__.get(a)
+                if type(a) == str:
+                    if a in self.__dict__:
+                        ret_dict[a] = self.__dict__.get(a)
+                else:
+                    return self.__dict__
             return ret_dict
         else:
             return self.__dict__
