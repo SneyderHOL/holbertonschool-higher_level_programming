@@ -21,7 +21,7 @@ class Student:
         Args:
             attrs (list): list of strings
         """
-        if attrs:
+        if attrs is not None:
             ret_dict = {}
             for a in attrs:
                 if type(a) == str:
