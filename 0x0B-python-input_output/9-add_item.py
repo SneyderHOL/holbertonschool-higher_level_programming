@@ -3,14 +3,6 @@
 import sys
 save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
-
-
-def add_item(obj):
-    """lookup: function that returns the list of available attributes and
-        methods of an object
-    """
-    return list(dir(obj))
-
 if __name__ == '__main__':
     filename = 'add_item.json'
     n_list = []
