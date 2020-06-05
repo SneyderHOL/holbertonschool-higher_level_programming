@@ -15,9 +15,11 @@ Concepts:
 Decribing each script:
 
 For task 0:
+
 test/ folder containing unit testing for all the files, classes and methods and PEP8 validations.
 
 For task 1:
+
 models/base.py, class Base use as "base" of all other classes in this project
 models/__init__.py empty file.
 
@@ -29,6 +31,7 @@ models/__init__.py empty file.
         otherwise, increment __nb_objects and assign the new value to the public instance attribute id
 
 For task 2:
+
 models/.py
 models/rectangle.py class Rectangle that inherits from Base
 
@@ -44,6 +47,7 @@ models/rectangle.py class Rectangle that inherits from Base
         Assign each argument width, height, x and y to the right attribute
 
 For task 3:
+
 Update the class Rectangle by adding validation of all setter methods and instantiation (id excluded):
 
     If the input is not an integer, raise the TypeError exception with the message: <name of the attribute> must be an integer. Example: width must be an integer
@@ -51,18 +55,23 @@ Update the class Rectangle by adding validation of all setter methods and instan
     If x or y is under 0, raise the ValueError exception with the message: <name of the attribute> must be >= 0. Example: x must be >= 0
 
 For task 4:
+
 Update the class Rectangle by adding the public method def area(self): that returns the area value of the Rectangle instance.
 
 For task 5:
+
 Update the class Rectangle by adding the public method def display(self): that prints in stdout the Rectangle instance with the character # - you don’t need to handle x and y here.
 
 For task 6:
+
 Update the class Rectangle by overriding the __str__ method so that it returns [Rectangle] (<id>) <x>/<y> - <width>/<height>
 
 For task 7:
+
 Update the class Rectangle by improving the public method def display(self): to print in stdout the Rectangle instance with the character # by taking care of x and y
 
 For task 8:
+
 Update the class Rectangle by adding the public method def update(self, *args): that assigns an argument to each attribute:
 
     1st argument should be the id attribute
@@ -72,6 +81,7 @@ Update the class Rectangle by adding the public method def update(self, *args): 
     5th argument should be the y attribute
 
 For task 9:
+
 Update the class Rectangle by updating the public method def update(self, *args): by changing the prototype to update(self, *args, **kwargs) that assigns a key/value argument to attributes:
 
     **kwargs can be thought of as a double pointer to a dictionary: key/value
@@ -80,6 +90,7 @@ Update the class Rectangle by updating the public method def update(self, *args)
     Each key in this dictionary represents an attribute to the instance
 
 For task 10:
+
 models/square.py class Square that inherits from Rectangle:
 
     In the file models/square.py
@@ -91,11 +102,13 @@ models/square.py class Square that inherits from Rectangle:
     The overloading __str__ method should return [Square] (<id>) <x>/<y> - <size> - in our case, width or height
 
 For task 11:
+
 Update the class Square by adding the public getter and setter size
     The setter should assign (in this order) the width and the height - with the same value
     The setter should have the same value validation as the Rectangle for width and height - No need to change the exception error message (It should be the one from width)
 
 For task 12:
+
 Update the class Square by adding the public method def update(self, *args, **kwargs) that assigns attributes:
     *args is the list of arguments - no-keyworded arguments
         1st argument should be the id attribute
@@ -107,6 +120,7 @@ Update the class Square by adding the public method def update(self, *args, **kw
     Each key in this dictionary represents an attribute to the instance
 
 For task 13:
+
 Update the class Rectangle by adding the public method def to_dictionary(self): that returns the dictionary representation of a Rectangle:
 
     This dictionary must contain:
@@ -118,6 +132,7 @@ Update the class Rectangle by adding the public method def to_dictionary(self): 
     y
 
 For task 14:
+
 Update the class Square by adding the public method def to_dictionary(self): that returns the dictionary representation of a Square:
 
     This dictionary must contain:
@@ -128,6 +143,7 @@ Update the class Square by adding the public method def to_dictionary(self): tha
     y
 
 For task 15:
+
 JSON is one of the standard formats for sharing data representation.
 
 Update the class Base by adding the static method def to_json_string(list_dictionaries): that returns the JSON string representation of list_dictionaries:
@@ -137,6 +153,7 @@ Update the class Base by adding the static method def to_json_string(list_dictio
     Otherwise, return the JSON string representation of list_dictionaries
 
 For task 16:
+
 Update the class Base by adding the class method def save_to_file(cls, list_objs): that writes the JSON string representation of list_objs to a file:
 
     list_objs is a list of instances who inherits of Base - example: list of Rectangle or list of Square instances
@@ -146,6 +163,7 @@ Update the class Base by adding the class method def save_to_file(cls, list_objs
     You must overwrite the file if it already exists
 
 For task 17:
+
 Update the class Base by adding the static method def from_json_string(json_string): that returns the list of the JSON string representation json_string:
 
     json_string is a string representing a list of dictionaries
@@ -153,6 +171,7 @@ Update the class Base by adding the static method def from_json_string(json_stri
     Otherwise, return the list represented by json_string
 
 For task 18:
+
 Update the class Base by adding the class method def create(cls, **dictionary): that returns an instance with all attributes already set:
 
     **dictionary can be thought of as a double pointer to a dictionary
@@ -164,6 +183,7 @@ Update the class Base by adding the class method def create(cls, **dictionary): 
     You are not allowed to use eval
 
 For task 19:
+
 Update the class Base by adding the class method def load_from_file(cls): that returns a list of instances:
 
     The filename must be: <Class name>.json - example: Rectangle.json
@@ -172,6 +192,7 @@ Update the class Base by adding the class method def load_from_file(cls): that r
     You must use the from_json_string and create methods (implemented previously)
 
 For task 20 (advance):
+
 Update the class Base by adding the class methods def save_to_file_csv(cls, list_objs): and def load_from_file_csv(cls): that serializes and deserializes in CSV:
 
     The filename must be: <Class name>.csv - example: Rectangle.csv
@@ -181,6 +202,7 @@ Update the class Base by adding the class methods def save_to_file_csv(cls, list
         Square: <id>,<size>,<x>,<y>
 
 For task 21 (advance):
+
 Update the class Base by adding the static method def draw(list_rectangles, list_squares): that opens a window and draws all the Rectangles and Squares:
 
     You must use the Turtle graphics module
