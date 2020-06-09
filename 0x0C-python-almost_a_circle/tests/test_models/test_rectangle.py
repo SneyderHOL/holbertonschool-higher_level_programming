@@ -34,9 +34,9 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             rectangle_obj1 = Rectangle()
         with self.assertRaises(ValueError):
-            rectangle_obj1 = Rectangle(0 , 2, 1, 1, 23)
+            rectangle_obj1 = Rectangle(0, 2, 1, 1, 23)
         with self.assertRaises(TypeError):
-            rectangle_obj1 = Rectangle(1 , 2.3, 1, 1, 23)
+            rectangle_obj1 = Rectangle(1, 2.3, 1, 1, 23)
 
     def test_width_setter_validations(self):
         """Tests for width setter methods"""

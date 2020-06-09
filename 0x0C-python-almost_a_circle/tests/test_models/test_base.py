@@ -17,8 +17,10 @@ class TestBase(unittest.TestCase):
         self.assertGreater(len(Base.__doc__), 1)
         self.assertGreater(len(Base.__init__.__doc__), 1)
         self.assertGreater(len(Base.save_to_file.__doc__), 1)
+        self.assertGreater(len(Base.load_from_file.__doc__), 1)
         self.assertGreater(len(Base.to_json_string.__doc__), 1)
         self.assertGreater(len(Base.from_json_string.__doc__), 1)
+        self.assertGreater(len(Base.create.__doc__), 1)
 
     def test_new_object(self):
         """Tests when an instance is created"""
@@ -57,6 +59,10 @@ class TestBase(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base.save_to_file()
 
+    def test_load_from_file(self):
+        """Tests for load_from_file method"""
+
+
     def test_from_json_string(self):
         """Tests for from_json_string method"""
         with self.assertRaises(TypeError):
@@ -69,6 +75,10 @@ class TestBase(unittest.TestCase):
         self.assertEqual(Base.from_json_string(True), None)
         self.assertEqual(Base.from_json_string('[{}]'), [{}])
         self.assertEqual(Base.from_json_string('[{"id": 3}]'), [{'id': 3}])
+
+    def test_create(self):
+        """Tests for create method"""
+        pass
 
 if __name__ == '__main__':
     unittest.main()

@@ -35,7 +35,6 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             square_obj1 = Square()
 
-
     def test_area_validations(self):
         """Tests for area method"""
         square_obj2 = Square(2, 10, 0, 3)
