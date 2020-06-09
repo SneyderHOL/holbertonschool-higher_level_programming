@@ -126,9 +126,11 @@ class Base:
         Args:
             list_dictionaries: list of dictionaries containing data
             representation
+        Return:
+            A JSON string
         """
         if list_dictionaries is None or list_dictionaries == []:
-            return '[]'
+            return "[]"
         return json.dumps(list_dictionaries)
 
     @staticmethod
