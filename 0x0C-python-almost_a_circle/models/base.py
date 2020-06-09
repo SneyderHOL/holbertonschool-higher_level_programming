@@ -69,6 +69,56 @@ class Base:
             with open(filename, mode='w', encoding='utf-8') as r_file:
                 r_file.write(cls.to_json_string(value))
 
+    @classmethod
+    def load_from_file_csv(cls):
+        """save_to_file: class method that returns a list of instances
+        Return:
+            A list of instances
+        """
+        filename = cls.__name__ + '.csv'
+        list_of_objs = []
+        try:
+            with open(filename, mode='r', encoding='utf-8') as r_file:
+                for line in r_file:
+                    words = line.split(sep=',')
+                    new_obj = None
+                    if len(words) == 5:
+                        new_obj = cls(int(words[1]), int(words[2]),
+                                      int(words[3]), int(words[4]),
+                                      int(words[0]))
+                    if len(words) == 4:
+                        new_obj = cls(int(words[1]), int(words[2]),
+                                      int(words[3]), int(words[0]))
+                    if new_obj is not None:
+                        list_of_objs.append(new_obj)
+            return list_of_objs
+        except Exception:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save_to_file: class method that writes the JSON string
+            representation of list_objs to a csv file
+        Args:
+            list_objs: list of objects who inherits of Base
+        """
+        value = None
+        if type(list_objs) == list and all(issubclass(type(a), Base) for a in
+                                           list_objs):
+            value = ""
+            for obj in list_objs:
+                if cls.__name__ == 'Rectangle':
+                    value += (str(obj.id) + ',' + str(obj.width) + ',' +
+                              str(obj.height) + ',' + str(obj.x) + ',' +
+                              str(obj.y) + '\n')
+                if cls.__name__ == 'Square':
+                    value += (str(obj.id) + ',' + str(obj.size) + ',' +
+                              str(obj.x) + ',' + str(obj.y) + '\n')
+        if value is not None:
+            filename = cls.__name__ + '.csv'
+            with open(filename, mode='w', encoding='utf-8') as r_file:
+                r_file.write(value)
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """to_json_string: static method that returns the JSON string
