@@ -57,15 +57,17 @@ class TestBase(unittest.TestCase):
     def test_to_json_string(self):
         """Tests for to_json_string method"""
         self.assertEqual(Base.to_json_string(None), '[]')
-        self.assertEqual(Base.to_json_string(1), None)
+        self.assertEqual(Base.to_json_string(1), '1')
         self.assertEqual(Base.to_json_string([]), '[]')
-        self.assertEqual(Base.to_json_string([{}]), '[]')
-        self.assertEqual(Base.to_json_string([1]), None)
-        self.assertEqual(Base.to_json_string([[1, 2]]), None)
-        self.assertEqual(Base.to_json_string([(True, False)]), None)
+        self.assertEqual(Base.to_json_string([{}]), '[{}]')
+        self.assertEqual(Base.to_json_string([1]), '[1]')
+        self.assertEqual(Base.to_json_string([[1, 2]]), '[[1, 2]]')
+        self.assertEqual(Base.to_json_string([(True, 2)]), '[[true, 2]]')
         self.assertEqual(Base.to_json_string([{'id': 3}]), '[{"id": 3}]')
         with self.assertRaises(TypeError):
             Base.to_json_string()
+        with self.assertRaises(TypeError):
+            Base.to_json_string([], [])
 
     def test_from_json_string(self):
         """Tests for from_json_string method"""
