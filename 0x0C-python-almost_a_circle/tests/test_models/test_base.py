@@ -38,19 +38,6 @@ class TestBase(unittest.TestCase):
         with self.assertRaises(TypeError):
             base_obj5 = Base(1, 3)
 
-    def test_to_json_string(self):
-        """Tests for to_json_string method"""
-        self.assertEqual(Base.to_json_string(None), '[]')
-        self.assertEqual(Base.to_json_string(1), None)
-        self.assertEqual(Base.to_json_string([]), '[]')
-        self.assertEqual(Base.to_json_string([{}]), '[{}]')
-        self.assertEqual(Base.to_json_string([1]), None)
-        self.assertEqual(Base.to_json_string([[1, 2]]), None)
-        self.assertEqual(Base.to_json_string([(True, False)]), None)
-        self.assertEqual(Base.to_json_string([{'id': 3}]), '[{"id": 3}]')
-        with self.assertRaises(TypeError):
-            Base.to_json_string()
-
     def test_save_to_file(self):
         """Tests for save_to_file method"""
         rectangle_obj = Rectangle(9, 8, 1, 2, 23)
@@ -65,7 +52,20 @@ class TestBase(unittest.TestCase):
 
     def test_load_from_file(self):
         """Tests for load_from_file method"""
+        pass
 
+    def test_to_json_string(self):
+        """Tests for to_json_string method"""
+        self.assertEqual(Base.to_json_string(None), '[]')
+        self.assertEqual(Base.to_json_string(1), None)
+        self.assertEqual(Base.to_json_string([]), '[]')
+        self.assertEqual(Base.to_json_string([{}]), '[]')
+        self.assertEqual(Base.to_json_string([1]), None)
+        self.assertEqual(Base.to_json_string([[1, 2]]), None)
+        self.assertEqual(Base.to_json_string([(True, False)]), None)
+        self.assertEqual(Base.to_json_string([{'id': 3}]), '[{"id": 3}]')
+        with self.assertRaises(TypeError):
+            Base.to_json_string()
 
     def test_from_json_string(self):
         """Tests for from_json_string method"""

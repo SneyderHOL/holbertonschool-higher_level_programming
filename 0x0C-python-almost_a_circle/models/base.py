@@ -133,6 +133,8 @@ class Base:
             if len(list_dictionaries) == 0:
                 return '[]'
             if all(type(a) == dict for a in list_dictionaries):
+                if len(list_dictionaries[0]) == 0:
+                    return '[]'
                 return json.dumps(list_dictionaries)
 
     @staticmethod
