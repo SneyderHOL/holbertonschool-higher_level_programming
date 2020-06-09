@@ -15,6 +15,8 @@ class TestSquare(unittest.TestCase):
         self.assertGreater(len(Square.__doc__), 1)
         self.assertGreater(len(Square.__init__.__doc__), 1)
         self.assertGreater(len(Square.__str__.__doc__), 1)
+        self.assertGreater(len(Square.to_dictionary.__doc__), 1)
+        self.assertGreater(len(Square.update.__doc__), 1)
 
     def test_new_object(self):
         """ Test when an instance is created"""
@@ -24,16 +26,20 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(square_obj.id, 5)
         self.assertEqual(square_obj.width, 10)
         self.assertEqual(square_obj.height, 10)
+        self.assertEqual(square_obj.size, 10)
         self.assertEqual(square_obj.x, 2)
         self.assertEqual(square_obj.y, 1)
         square_obj2 = Square(2, 10, 0, 1)
         self.assertEqual(square_obj2.id, 1)
         self.assertEqual(square_obj2.width, 2)
         self.assertEqual(square_obj2.height, 2)
+        self.assertEqual(square_obj2.size, 2)
         self.assertEqual(square_obj2.x, 10)
         self.assertEqual(square_obj2.y, 0)
         with self.assertRaises(TypeError):
             square_obj1 = Square()
+        with self.assertRaises(TypeError):
+            square_obj1 = Square(2, 3, 4, 4, 1, 4)
 
     def test_area_validations(self):
         """Tests for area method"""
@@ -46,6 +52,8 @@ class TestSquare(unittest.TestCase):
         """Tests for __str__ method"""
         square_obj3 = Square(10, 2, 1, 1)
         self.assertEqual(square_obj3.__str__(), '[Square] (1) 2/1 - 10')
+        square_obj33 = Square(9, 8, 4, 10)
+        self.assertEqual(square_obj33.__str__(), '[Square] (10) 8/4 - 9')
         with self.assertRaises(TypeError):
             square_obj3.__str__([2, 4])
 
@@ -67,6 +75,11 @@ class TestSquare(unittest.TestCase):
     def test_update_validations(self):
         """Tests for update method"""
         square_obj6 = Square(1, 1, 1, 1)
+        self.assertEqual(square_obj6.update(), None)
+        self.assertEqual(square_obj6.id, 1)
+        self.assertEqual(square_obj6.size, 1)
+        self.assertEqual(square_obj6.x, 1)
+        self.assertEqual(square_obj6.y, 1)
         square_obj6.update(89)
         self.assertEqual(square_obj6.id, 89)
         square_obj6.update(89, 2)
@@ -84,9 +97,10 @@ class TestSquare(unittest.TestCase):
             square_obj6.update(89, 2, -3)
         with self.assertRaises(TypeError):
             square_obj6.update(89, 2, 3, 5.5)
-        square_obj6.update(23, 2, 3, id=9, size=8)
+        square_obj6.update(23, 3, 2, id=9, size=8)
         self.assertEqual(square_obj6.id, 23)
-        self.assertEqual(square_obj6.size, 2)
+        self.assertEqual(square_obj6.size, 3)
+        self.assertEqual(square_obj6.x, 2)
         with self.assertRaises(TypeError):
             square_obj6.update(size=True)
         square_obj6.update(size=9, y=8)
@@ -97,7 +111,9 @@ class TestSquare(unittest.TestCase):
         """Tests for to_dictionary method"""
         square_obj7 = Square(4, 2, 1, 6)
         aux = {'id': 6, 'size': 4, 'x': 2, 'y': 1}
-        self.assertEqual(sorted(square_obj7.to_dictionary()), sorted(aux))
+        self.assertTrue(square_obj7.to_dictionary() == aux)
+        aux['size'] = 9
+        self.assertFalse(square_obj7.to_dictionary() == aux)
         self.assertEqual(type(square_obj7.to_dictionary()), dict)
         with self.assertRaises(TypeError):
             square_obj7.to_dictionary(89, True, 3, 5.5)

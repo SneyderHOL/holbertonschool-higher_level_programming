@@ -18,6 +18,8 @@ class TestBase(unittest.TestCase):
         self.assertGreater(len(Base.__init__.__doc__), 1)
         self.assertGreater(len(Base.save_to_file.__doc__), 1)
         self.assertGreater(len(Base.load_from_file.__doc__), 1)
+        self.assertGreater(len(Base.save_to_file_csv.__doc__), 1)
+        self.assertGreater(len(Base.load_from_file_csv.__doc__), 1)
         self.assertGreater(len(Base.to_json_string.__doc__), 1)
         self.assertGreater(len(Base.from_json_string.__doc__), 1)
         self.assertGreater(len(Base.create.__doc__), 1)
@@ -33,6 +35,8 @@ class TestBase(unittest.TestCase):
         self.assertEqual(base_obj3.id, 'a')
         base_obj4 = Base()
         self.assertEqual(base_obj4.id, 2)
+        with self.assertRaises(TypeError):
+            base_obj5 = Base(1, 3)
 
     def test_to_json_string(self):
         """Tests for to_json_string method"""

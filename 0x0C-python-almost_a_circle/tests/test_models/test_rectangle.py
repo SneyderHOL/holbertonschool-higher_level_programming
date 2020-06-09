@@ -17,6 +17,7 @@ class TestRectangle(unittest.TestCase):
         self.assertGreater(len(Rectangle.__doc__), 1)
         self.assertGreater(len(Rectangle.__init__.__doc__), 1)
         self.assertGreater(len(Rectangle.__str__.__doc__), 1)
+        self.assertGreater(len(Rectangle.to_dictionary.__doc__), 1)
         self.assertGreater(len(Rectangle.area.__doc__), 1)
         self.assertGreater(len(Rectangle.update.__doc__), 1)
         self.assertGreater(len(Rectangle.display.__doc__), 1)
@@ -33,6 +34,10 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle_obj.y, 1)
         with self.assertRaises(TypeError):
             rectangle_obj1 = Rectangle()
+        with self.assertRaises(TypeError):
+            rectangle_obj1 = Rectangle(2, 3, 5, 5, 9, 0, 1)
+        with self.assertRaises(TypeError):
+            rectangle_obj1 = Rectangle((1, 2, 3, 4, 5))
         with self.assertRaises(ValueError):
             rectangle_obj1 = Rectangle(0, 2, 1, 1, 23)
         with self.assertRaises(TypeError):
@@ -43,6 +48,8 @@ class TestRectangle(unittest.TestCase):
         rectangle_obj1 = Rectangle(3, 4, 0, 0, 10)
         with self.assertRaises(ValueError):
             rectangle_obj1.width = 0
+        with self.assertRaises(ValueError):
+            rectangle_obj1.width = -1
         with self.assertRaises(TypeError):
             rectangle_obj1.width = 'Ho'
         rectangle_obj1.width = 5
@@ -56,6 +63,8 @@ class TestRectangle(unittest.TestCase):
     def test_height_setter_validations(self):
         """Tests for height setter methods"""
         rectangle_obj1 = Rectangle(3, 10, 0, 0, 10)
+        with self.assertRaises(ValueError):
+            rectangle_obj1.height = 0
         with self.assertRaises(ValueError):
             rectangle_obj1.height = -4
         with self.assertRaises(TypeError):
@@ -90,13 +99,13 @@ class TestRectangle(unittest.TestCase):
             rectangle_obj1.y = -4
         with self.assertRaises(TypeError):
             rectangle_obj1.y = 'Ho'
-        rectangle_obj1.y = 1
-        self.assertEqual(rectangle_obj1.y, 1)
+        rectangle_obj1.y = 10
+        self.assertEqual(rectangle_obj1.y, 10)
 
     def test_y_getter_validations(self):
         """Tests for y getter methods"""
-        rectangle_obj1 = Rectangle(3, 4, 0, 0, 10)
-        self.assertEqual(rectangle_obj1.y, 0)
+        rectangle_obj1 = Rectangle(3, 4, 0, 8, 10)
+        self.assertEqual(rectangle_obj1.y, 8)
 
     def test_area_validations(self):
         """Tests for area method"""
@@ -104,6 +113,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle_obj2.area(), 16)
         with self.assertRaises(TypeError):
             rectangle_obj2.area(45)
+        rectangle_obj2.height = 8
+        self.assertEqual(rectangle_obj2.area(), 64)
 
     def test_display_validations(self):
         """Tests for display method"""
@@ -111,9 +122,16 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle_obj3.display(), None)
         with patch('sys.stdout', new=StringIO()) as get_output:
             rectangle_obj3.display()
-            self.assertEqual(get_output.getvalue(), '\n ###\n ###\n')
+            output = '\n ###\n ###\n'
+            self.assertEqual(get_output.getvalue(), output)
         with self.assertRaises(TypeError):
             rectangle_obj3.display(True)
+        rectangle_obj3.x = 3
+        rectangle_obj3.y = 3
+        with patch('sys.stdout', new=StringIO()) as get_output:
+            rectangle_obj3.display()
+            output = '\n\n\n   ###\n   ###\n'
+            self.assertEqual(get_output.getvalue(), output)
 
     def test__str__validations(self):
         """Tests for __str__ method"""
@@ -126,8 +144,13 @@ class TestRectangle(unittest.TestCase):
 
     def test_update_validations(self):
         """Tests for update method"""
-        rectangle_obj5 = Rectangle(1, 1, 1, 1)
+        rectangle_obj5 = Rectangle(1, 1, 1, 1, 1)
         self.assertEqual(rectangle_obj5.update(), None)
+        self.assertEqual(rectangle_obj5.id, 1)
+        self.assertEqual(rectangle_obj5.width, 1)
+        self.assertEqual(rectangle_obj5.height, 1)
+        self.assertEqual(rectangle_obj5.x, 1)
+        self.assertEqual(rectangle_obj5.y, 1)
         rectangle_obj5.update(89)
         self.assertEqual(rectangle_obj5.id, 89)
         rectangle_obj5.update(89, 2)
@@ -170,17 +193,15 @@ class TestRectangle(unittest.TestCase):
         rectangle_obj5.update(width=9, height=8)
         self.assertEqual(rectangle_obj5.width, 9)
         self.assertEqual(rectangle_obj5.height, 8)
-#        rectangle_obj5.update(None)
-#        self.assertEqual(rectangle_obj5.id, 8)
-#        with self.assertRaises(SyntaxError):
-#            rectangle_obj5.update(width=3, height=2, 3)
 
     def test_to_dictionary_validations(self):
         """Tests for to_dictionary method"""
         rectangle_obj6 = Rectangle(4, 2, 1, 1, 5)
         self.assertEqual(type(rectangle_obj6.to_dictionary()), dict)
         aux = {'id': 5, 'height': 2, 'width': 4, 'x': 1, 'y': 1}
-        self.assertEqual(sorted(rectangle_obj6.to_dictionary()), sorted(aux))
+        self.assertTrue(rectangle_obj6.to_dictionary() == aux)
+        aux['id'] = 9
+        self.assertFalse(rectangle_obj6.to_dictionary() == aux)
         with self.assertRaises(TypeError):
             rectangle_obj6.to_dictionary(89, True, 3, 5.5)
 
