@@ -24,10 +24,10 @@ class Base:
         Return:
             The new instance with the attributes set
         """
-        if dictionary and type(dictionary) == dict:
+        if cls.__name__ in ['Rectangle','Square']:
             new_object = cls(1, 1, 1, 1)
-            new_object.update(**dictionary)
-            return new_object
+        new_object.update(**dictionary)
+        return new_object
 
     @classmethod
     def load_from_file(cls):
@@ -129,9 +129,9 @@ class Base:
         Return:
             A JSON string
         """
-        if list_dictionaries is None or list_dictionaries == []:
-            return "[]"
-        return json.dumps(list_dictionaries)
+        if list_dictionaries is not None or []:
+            return json.dumps(list_dictionaries)
+        return "[]"
 
     @staticmethod
     def from_json_string(json_string):
