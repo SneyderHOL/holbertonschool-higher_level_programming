@@ -127,20 +127,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_display_validations(self):
         """Tests for display method"""
-        rectangle_obj3 = Rectangle(3, 2, 1, 1)
-        self.assertEqual(rectangle_obj3.display(), None)
-        with patch('sys.stdout', new=StringIO()) as get_output:
-            rectangle_obj3.display()
-            output = '\n ###\n ###\n'
-            self.assertEqual(get_output.getvalue(), output)
-        with self.assertRaises(TypeError):
-            rectangle_obj3.display(True)
-        rectangle_obj3.x = 3
-        rectangle_obj3.y = 3
-        with patch('sys.stdout', new=StringIO()) as get_output:
-            rectangle_obj3.display()
-            output = '\n\n\n   ###\n   ###\n'
-            self.assertEqual(get_output.getvalue(), output)
+        pass
 
     def test__str__validations(self):
         """Tests for __str__ method"""
