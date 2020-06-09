@@ -10,8 +10,8 @@ class Base:
     def __init__(self, id=None):
         """__init__: method that initialize an object"""
         if id is None:
-            type(self).__nb_objects += 1
-            self.id = self.__nb_objects
+            Base.__nb_objects += 1
+            self.id = Base.__nb_objects
         else:
             self.id = id
 
@@ -24,10 +24,13 @@ class Base:
         Return:
             The new instance with the attributes set
         """
-        if cls.__name__ in ['Rectangle', 'Square']:
-            new_object = cls(1, 1, 1, 1)
-        new_object.update(**dictionary)
-        return new_object
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                new_object = cls(1, 1)
+            elif cls.__name__ == "Square":
+                new_object = cls(1)
+            new_object.update(**dictionary)
+            return new_object
 
     @classmethod
     def load_from_file(cls):
