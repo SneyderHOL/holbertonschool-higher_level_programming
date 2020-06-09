@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Unittest for Rectangle"""
 import unittest
+import pep8
 from models import rectangle
 from models.rectangle import Rectangle
 from models.base import Base
@@ -21,6 +22,14 @@ class TestRectangle(unittest.TestCase):
         self.assertGreater(len(Rectangle.area.__doc__), 1)
         self.assertGreater(len(Rectangle.update.__doc__), 1)
         self.assertGreater(len(Rectangle.display.__doc__), 1)
+
+    def test_pep8(self):
+        """ Test for PEP8 """
+        pep8_val = pep8.StyleGuide(quiet=True)
+        res_rectangle = pep8_val.check_files(['models/rectangle.py'])
+        self.assertEqual(res_rectangle.total_errors, 0)
+        res_t_r = pep8_val.check_files(['tests/test_models/test_rectangle.py'])
+        self.assertEqual(res_t_r.total_errors, 0)
 
     def test_new_object(self):
         """Tests for an new object"""

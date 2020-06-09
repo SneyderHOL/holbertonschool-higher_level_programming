@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Unittest for Base"""
 import unittest
+import pep8
 import json
 from models import base
 from models.base import Base
@@ -23,6 +24,14 @@ class TestBase(unittest.TestCase):
         self.assertGreater(len(Base.to_json_string.__doc__), 1)
         self.assertGreater(len(Base.from_json_string.__doc__), 1)
         self.assertGreater(len(Base.create.__doc__), 1)
+
+    def test_pep8(self):
+        """ Test for PEP8 """
+        pep8_val = pep8.StyleGuide(quiet=True)
+        res_base = pep8_val.check_files(['models/base.py'])
+        self.assertEqual(res_base.total_errors, 0)
+        res_t_base = pep8_val.check_files(['tests/test_models/test_base.py'])
+        self.assertEqual(res_t_base.total_errors, 0)
 
     def test_new_object(self):
         """Tests when an instance is created"""
