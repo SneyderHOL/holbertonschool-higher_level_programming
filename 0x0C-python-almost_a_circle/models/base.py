@@ -120,20 +120,6 @@ class Base:
                 r_file.write(value)
 
     @staticmethod
-    def to_json_string(list_dictionaries):
-        """to_json_string: static method that returns the JSON string
-            representation of list_dictionaries
-        Args:
-            list_dictionaries: list of dictionaries containing data
-            representation
-        Return:
-            A JSON string
-        """
-        if list_dictionaries is None or list_dictionaries == []:
-            return "[]"
-        return json.dumps(list_dictionaries)
-
-    @staticmethod
     def from_json_string(json_string):
         """from_json_string: static method that returns the list of the JSON
             string representation
@@ -157,3 +143,17 @@ class Base:
                         return list_of_objs
             except Exception:
                 return None
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """to_json_string: static method that returns the JSON string
+            representation of list_dictionaries
+        Args:
+            list_dictionaries: list of dictionaries containing data
+            representation
+        Return:
+            A JSON string
+        """
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
+        return json.dumps(list_dictionaries)
