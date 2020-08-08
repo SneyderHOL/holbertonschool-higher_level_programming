@@ -12,13 +12,9 @@ if __name__ == "__main__":
     if size == 4:
         conn_values = "mysql+mysqldb://{}:{}@localhost:3306/{}"\
                     "".format(sys.argv[1], sys.argv[2], sys.argv[3])
-#        create an engine
         engine = create_engine(conn_values, pool_recycle=3600)
-#        generate database shema
         Base.metadata.create_all(engine)
-#        create a configured 'Session' class
         Session = sessionmaker(bind=engine)
-#        create new session
         session = Session()
         value = sys.argv[4]
         states_list = session.query(State).filter(State.name.like(value))\

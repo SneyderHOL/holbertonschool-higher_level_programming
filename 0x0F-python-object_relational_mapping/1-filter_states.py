@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Select states module"""
+
+
 if __name__ == "__main__":
     import MySQLdb
     import sys
