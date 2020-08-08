@@ -22,8 +22,8 @@ if __name__ == "__main__":
         cur = db.cursor()
         var_input = escape_chars(sys.argv[4])
         query = "SELECT c.name FROM cities AS c INNER JOIN "\
-                "states AS s ON c.state_id = s.id WHERE s.name LIKE 'Texas' "\
-                "ORDER BY c.id ASC".format(var_input)
+                "states AS s ON c.state_id = s.id WHERE BINARY s.name LIKE "\
+                "'{}' ORDER BY c.id ASC".format(var_input)
         res = cur.execute(query)
         results = cur.fetchall()
         val = ""
