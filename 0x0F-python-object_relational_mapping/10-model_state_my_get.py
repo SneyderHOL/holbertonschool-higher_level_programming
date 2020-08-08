@@ -2,6 +2,15 @@
 """Select States module"""
 
 
+def escape_chars(string):
+    """ function to escape characers use in sql"""
+    esc_array = ['\\x00', '\\n', '\\r', '\\', '\'', '"', '\\x1a', '%', '_']
+    if type(string) is str:
+        for element in esc_array:
+            if element in string:
+                string = string.replace(element, "\\" + element)
+    return string
+
 if __name__ == "__main__":
     from model_state import Base, State
     from sqlalchemy import create_engine
@@ -16,13 +25,12 @@ if __name__ == "__main__":
         Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
         session = Session()
-        value = sys.argv[4]
+        value = escape_chars(sys.argv[4])
         states_list = session.query(State).filter(State.name.like(value))\
-                                          .all()
+                                          .first()
         if states_list is None:
             print("Not found")
         else:
-            for state in states_list:
-                print("{}".format(state.id))
+            print(states_list.id)
         session.commit()
         session.close()
