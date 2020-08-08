@@ -20,4 +20,5 @@ if __name__ == "__main__":
         new_object.name = "Louisiana"
         session.add(new_object)
         session.commit()
+        print(new_object.id)
         session.close()

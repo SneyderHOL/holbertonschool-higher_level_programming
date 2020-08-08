@@ -20,7 +20,7 @@ if __name__ == "__main__":
         states_list = session.query(State).filter(State.name.like(value))\
                                           .all()
         if states_list is None:
-            print("Nothing")
+            print("Not found")
         else:
             for state in states_list:
                 print("{}".format(state.id))
