@@ -18,7 +18,8 @@ if __name__ == "__main__":
         Session = sessionmaker(bind=engine)
         session = Session()
         states_list = session.query(State, City)\
-                             .filter(State.id == City.state_id).all()
+                             .filter(State.id == City.state_id)\
+                             .order_by(State.id, City.id).all()
         if states_list is None:
             print("Not found")
         else:
