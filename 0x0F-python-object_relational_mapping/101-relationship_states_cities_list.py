@@ -28,6 +28,6 @@ if __name__ == "__main__":
                 if state != s:
                     state = s
                     print("{}: {}".format(s.id, s.name))
-                print("    {}: {}".format(c.id, c.name))
+                print("\t{}: {}".format(c.id, c.name))
         session.commit()
         session.close()
