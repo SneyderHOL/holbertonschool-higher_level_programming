@@ -5,7 +5,7 @@
 import sys
 from relationship_state import Base, State
 from relationship_city import City
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, lazyload
 from sqlalchemy import (create_engine)
 
 if __name__ == "__main__":
@@ -17,17 +17,16 @@ if __name__ == "__main__":
         Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
         session = Session()
-        states_list = session.query(State, City)\
+        """states_list = session.query(State, City)\
                              .join(City)\
-                             .order_by(State.id, City.id).all()
+                             .order_by(State.id, City.id).all()"""
+        states_list = session.query(State).order_by(State.id).all()
         if states_list is None:
             print("Not found")
         else:
-            state = None
-            for s, c in states_list:
-                if state != s:
-                    state = s
-                    print("{}: {}".format(s.id, s.name))
-                print("\t{}: {}".format(c.id, c.name))
+            for state in states_list:
+                print("{}: {}".format(state.id, state.name))
+                for city in state.cities:
+                    print("\t{}: {}".format(city.id, city.name))
         session.commit()
         session.close()
