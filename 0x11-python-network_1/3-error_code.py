@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Fetch to a page module """
 import urllib.request
-import urllib.error.URLError
 import sys
 
 
