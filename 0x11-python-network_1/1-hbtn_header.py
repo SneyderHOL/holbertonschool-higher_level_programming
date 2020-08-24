@@ -10,5 +10,6 @@ if __name__ == "__main__":
     with urllib.request.urlopen(req) as response:
         page = response.read()
         info = response.info()
-        request_id = info.get_params(header="X-Request-Id")[0][0]
-        print(request_id)
+        request_id = info.get_params(header="X-Request-Id")
+        if len(request_id) > 0:
+            print(request_id[0][0])
