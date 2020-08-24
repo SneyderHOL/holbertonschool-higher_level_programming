@@ -11,5 +11,4 @@ if __name__ == "__main__":
         print('Body response:')
         print('\t - type: {}'.format(type(page)))
         print('\t - content: {}'.format(page))
-        if info.get_content_charset() == 'utf-8':
-            print('\t - utf8 content: OK')
+        print('\t - utf8 content: {}'.format(str(page, "utf-8")))
