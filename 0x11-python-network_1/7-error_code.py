@@ -10,6 +10,6 @@ if __name__ == "__main__":
     try:
         req.raise_for_status()
     except requests.exceptions.HTTPError as e:
-        print("Error_code: {}".format(code))
+        print("Error code: {}".format(code))
     else:
         print(req.text)
