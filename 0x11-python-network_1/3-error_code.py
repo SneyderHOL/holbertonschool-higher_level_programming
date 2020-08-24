@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Fetch to a page module """
 import urllib.request
-import urllib.parse
+import urllib.error.URLError
 import sys
 
 
@@ -13,4 +13,5 @@ if __name__ == "__main__":
             content = str(page, "utf-8")
             print(content)
     except urllib.error.URLError as e:
-        print("Error code: {}".format(e.code))
+        if hasattr(e, 'code'):
+            print("Error code: {}".format(e.code))
