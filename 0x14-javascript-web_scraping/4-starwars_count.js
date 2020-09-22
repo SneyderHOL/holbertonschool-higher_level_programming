@@ -1,6 +1,6 @@
 #!/usr/bin/node
 const url = process.argv[2];
-const character = 'https://swapi-api.hbtn.io/api/people/18/';
+const characterId = '18';
 const request = require('request');
 request(url, function (error, response, body) {
   if (error) {
@@ -12,7 +12,7 @@ request(url, function (error, response, body) {
       let counter = 0;
       for (let i = 0; i < results.length; i++) {
         for (let j = 0; j < results[i].characters.length; j++) {
-          if (results[i].characters[j] === character) {
+          if (results[i].characters[j].slice(-3, -1) === characterId) {
             counter++;
           }
         }
