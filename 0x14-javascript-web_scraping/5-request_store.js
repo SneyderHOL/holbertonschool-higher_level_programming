@@ -8,7 +8,7 @@ request(url, function (error, response, body) {
     console.log(error);
   } else {
     if (response.statusCode === 200) {
-      fs.writeFile(file, response.body, function (err) {
+      fs.writeFile(file, response.body, 'utf8', function (err) {
         if (err) {
           console.log(err);
         }
