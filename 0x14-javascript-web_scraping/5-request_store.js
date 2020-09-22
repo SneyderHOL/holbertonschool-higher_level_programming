@@ -7,13 +7,11 @@ request(url, function (error, response, body) {
   if (error) {
     console.log(error);
   } else {
-    if (response.statusCode === 200) {
-      fs.writeFile(file, response.body, 'utf8', function (err) {
-        if (err) {
-          console.log(err);
-        }
-      });
-      console.log(response.body);
-    }
+    fs.writeFile(file, response.body, 'utf8', function (err) {
+      if (err) {
+        console.log(err);
+      }
+    });
+    console.log(response.body);
   }
 });
