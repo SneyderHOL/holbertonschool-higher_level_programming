@@ -12,6 +12,10 @@ request(url, function (error, response, body) {
         console.log(err);
       }
     });
-    console.log(response.body);
+    fs.write(0, response.body, 'utf8', function (err) {
+      if (err) {
+        console.log(err);
+      }
+    });
   }
 });
