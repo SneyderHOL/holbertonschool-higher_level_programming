@@ -1,3 +1,4 @@
+const $ = window.$;
 $('DIV#toggle_header').click(() => {
   const tag = $('HEADER').hasClass('green');
   if (tag === true) {
